@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RIPPLE | Flexible by Nature</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-green: #1c4522;
+      --accent-green: #2e6636;
+      --soft-green: #407b34;
+      --light-sage: #edf3ec;
+      --dark-text: #162417;
+      --gray-sub: #526053;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f6f8f5;
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-img {
+      height: 50px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-text);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--soft-green);
+    }
+
+    .cta-btn {
+      background-color: var(--primary-green);
+      color: #fff;
+      padding: 0.6rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--soft-green);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(28, 69, 34, 0.92), rgba(22, 36, 23, 0.92)),
+                  url('image_5d469c.jpg') center/cover;
+      color: #fff;
+      padding: 4rem 2rem;
+    }
+
+    .hero-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
+      opacity: 0.95;
+    }
+
+    .hero-product-img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: block;
+      margin: 0 auto;
+      background: #fff;
+      padding: 15px;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .badge-item {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(5px);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 4.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: var(--primary-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--gray-sub);
+      font-size: 1.1rem;
+    }
+
+    /* Product Display Section */
+    .product-showcase-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .showcase-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    /* Anatomy Container */
+    .anatomy-wrapper {
+      background-color: var(--light-sage);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+    }
+
+    .layer-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+      border-left: 5px solid var(--primary-green);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-box {
+      background: var(--light-sage);
+      padding: 1.8rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .feature-box i {
+      font-size: 2.2rem;
+      color: var(--primary-green);
+      margin-bottom: 0.8rem;
+    }
+
+    /* Banner */
+    .cta-banner {
+      background: var(--primary-green);
+      color: #fff;
+      border-radius: 20px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-text);
+      color: #afc0b0;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .badge-bar {
+        justify-content: center;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <!-- Logo Image 2 -->
+      <a href="#">
+        <img src="logo_2.jpeg" alt="RIPPLE - Flexible by Nature" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#mechanism">How It Works</a></li>
+        <li><a href="#anatomy">Triple-Layer</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+      </ul>
+      <a href="#shop" class="cta-btn">Shop Now</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: #a2e2a2; font-weight: 600;">Flexible by Nature[cite: 1, 3]</span>
+        <h1>The Reusable Bottle That Adapts To Your Lifestyle</h1>
+        <p>Full when you need it, compact when you don't[cite: 4, 5]. Carry less, live more — experience flexibility by nature[cite: 1, 2].</p>
+        <a href="#shop" class="cta-btn" style="padding: 0.9rem 2.2rem; font-size: 1.1rem;">Get Yours Today — 450ml Expandable[cite: 6]</a>
+        
+        <div class="badge-bar">
+          <div class="badge-item"><i class="fa-solid fa-shield-halved"></i> Leak Proof[cite: 6]</div>
+          <div class="badge-item"><i class="fa-solid fa-leaf"></i> BPA Free[cite: 6]</div>
+          <div class="badge-item"><i class="fa-solid fa-compress"></i> Compact & Portable[cite: 1, 6]</div>
+          <div class="badge-item"><i class="fa-solid fa-hand-holding-droplet"></i> Easy to Carry[cite: 6]</div>
+        </div>
+      </div>
+
+      <!-- Hero Product Image -->
+      <div>
+        <img src="image_5d469c.jpg" alt="RIPPLE Product Showcase" class="hero-product-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mechanism Section -->
+  <section id="mechanism" class="section">
+    <div class="section-header">
+      <h2>How It Works Mechanism</h2>
+      <p style="font-weight:600; letter-spacing: 1px;">FULL &rarr; PRESS &rarr; FOLD[cite: 2, 5, 6, 7]</p>
+    </div>
+
+    <div class="product-showcase-box">
+      <img src="image_5d469c.jpg" alt="FULL PRESS FOLD Mechanism" class="showcase-img">
+      <h3>Expandable 450ml Design[cite: 6]</h3>
+      <p>Adjust your bottle capacity on the fly — full size for maximum hydration, compressed for easy transport[cite: 1, 5].</p>
+    </div>
+  </section>
+
+  <!-- Product Anatomy Section -->
+  <section id="anatomy" class="section">
+    <div class="anatomy-wrapper">
+      <div class="section-header">
+        <h2>Product Anatomy</h2>
+        <p>Triple-Layer Protection & Flexibility System[cite: 7]</p>
+      </div>
+
+      <div class="layer-card">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--soft-green); text-transform: uppercase;">Layer 1 — Outer Body</div>
+        <h3>Flexible Natural Rubber Layer</h3>
+        <p>Accordion-style natural rubber outer body built for flexibility, grip, and impact resistance[cite: 1, 7].</p>
+      </div>
+
+      <div class="layer-card">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--soft-green); text-transform: uppercase;">Layer 2 — Middle Layer</div>
+        <h3>Temperature Insulation Layer</h3>
+        <p>Insulation barrier to keep your drink at the perfect temperature throughout the day[cite: 1, 7].</p>
+      </div>
+
+      <div class="layer-card">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--soft-green); text-transform: uppercase;">Layer 3 — Inner Layer</div>
+        <h3>Food-Contact Safe Inner Lining</h3>
+        <p>Protects your beverage's purity and ensures 100% BPA-free daily drinking[cite: 1, 6, 7].</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits" class="section">
+    <div class="section-header">
+      <h2>Core Benefits</h2>
+      <p>Crafted for supreme convenience and environmental responsibility[cite: 2, 7]</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-box">
+        <i class="fa-solid fa-maximize"></i>
+        <h4>Flexible Design</h4>
+        <p>Space-saving accordion folds that adapt whenever you need it[cite: 1, 7].</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-lock"></i>
+        <h4>Safe & Secure</h4>
+        <p>Multi-layer food-contact-safe protection for total daily safety[cite: 1, 7].</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-suitcase"></i>
+        <h4>Compact & Portable</h4>
+        <p>Packs down smoothly for travel, sports, and daily commute[cite: 1, 6, 7].</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-earth-americas"></i>
+        <h4>Eco-Friendly</h4>
+        <p>Reusable sustainable construction built to eliminate single-use plastics[cite: 2, 7].</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section id="shop" class="section">
+    <div class="cta-banner">
+      <h2>Join the Ripple Revolution![cite: 2, 7]</h2>
+      <p>The water bottle that adapts to your day — Pack it. Press it. Fold it[cite: 6].</p>
+      <a href="#" class="cta-btn" style="background: #fff; color: var(--primary-green); padding: 0.9rem 2.5rem; font-size: 1.1rem;">Shop Now</a>
+      
+      <div style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.85; letter-spacing: 1px;">
+        #FlexibleByNature &nbsp;|&nbsp; #RippleBottle &nbsp;|&nbsp; #SustainableLiving &nbsp;|&nbsp; #CarryLessLiveMore[cite: 2, 6, 7]
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 RIPPLE — Flexible by Nature. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
